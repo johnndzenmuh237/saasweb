@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Flowdesk — The all-in-one project management platform that helps teams ship faster, collaborate better, and track everything that matters." />
+  <title>Flowdesk — Manage Work, Ship Faster</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <script src="js/theme.js" defer></script>
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">⚡</div>
+        Flowdesk
+      </a>
+
+      <div class="nav-links" role="list">
+        <a href="features.html" class="nav-link" role="listitem">Features</a>
+        <a href="pricing.html" class="nav-link" role="listitem">Pricing</a>
+        <a href="#testimonials" class="nav-link" role="listitem">Customers</a>
+        <a href="contact.html" class="nav-link" role="listitem">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-secondary btn-sm">Sign in</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Start free trial</a>
+        <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-grid-bg"></div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="badge badge-primary">✨ New: AI task suggestions</span>
+          </div>
+
+          <h1 class="hero-title">
+            Your team's work,<br />
+            <span class="text-gradient">finally in flow.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Flowdesk brings tasks, docs, timelines, and your team into one connected workspace. Stop context-switching. Start shipping.
+          </p>
+
+          <div class="hero-actions">
+            <a href="signup.html" class="btn btn-primary btn-lg">
+              Get started free
+              <span>→</span>
+            </a>
+            <a href="features.html" class="btn btn-secondary btn-lg">
+              See how it works
+            </a>
+          </div>
+
+          <div class="hero-trust">
+            <div class="hero-avatars">
+              <div class="hero-avatar" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">A</div>
+              <div class="hero-avatar" style="background: linear-gradient(135deg, #0891B2, #06B6D4);">M</div>
+              <div class="hero-avatar" style="background: linear-gradient(135deg, #059669, #10B981);">S</div>
+              <div class="hero-avatar" style="background: linear-gradient(135deg, #DC2626, #EF4444);">J</div>
+              <div class="hero-avatar" style="background: linear-gradient(135deg, #D97706, #F59E0B);">R</div>
+            </div>
+            <p class="hero-trust-text">Trusted by <strong style="color:var(--color-text-primary)">12,000+</strong> teams worldwide</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Mockup -->
+      <div class="hero-visual">
+        <div class="dashboard-mockup">
+          <div class="mockup-topbar">
+            <div class="mockup-dots">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-url">app.flowdesk.io/dashboard</div>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-sidebar">
+              <div class="mockup-nav-item active">
+                <span class="icon">⊞</span> Dashboard
+              </div>
+              <div class="mockup-nav-item">
+                <span class="icon">✓</span> Tasks
+              </div>
+              <div class="mockup-nav-item">
+                <span class="icon">📋</span> Projects
+              </div>
+              <div class="mockup-nav-item">
+                <span class="icon">📅</span> Timeline
+              </div>
+              <div class="mockup-nav-item">
+                <span class="icon">💬</span> Inbox
+              </div>
+              <div class="mockup-nav-item">
+                <span class="icon">📊</span> Reports
+              </div>
+              <div class="mockup-nav-item" style="margin-top:auto;">
+                <span class="icon">⚙</span> Settings
+              </div>
+            </div>
+            <div class="mockup-main">
+              <div class="mockup-stats">
+                <div class="mockup-stat">
+                  <div class="mockup-stat-val">48</div>
+                  <div class="mockup-stat-label">Active Tasks</div>
+                  <div class="mockup-stat-change">↑ 12%</div>
+                </div>
+                <div class="mockup-stat">
+                  <div class="mockup-stat-val">6</div>
+                  <div class="mockup-stat-label">Projects</div>
+                  <div class="mockup-stat-change">↑ 2 new</div>
+                </div>
+                <div class="mockup-stat">
+                  <div class="mockup-stat-val">94%</div>
+                  <div class="mockup-stat-label">On Track</div>
+                  <div class="mockup-stat-change">↑ 4%</div>
+                </div>
+              </div>
+              <div class="mockup-chart-area">
+                <div class="chart-bar" style="height:50%; animation-delay:0.1s;"></div>
+                <div class="chart-bar" style="height:70%; animation-delay:0.15s;"></div>
+                <div class="chart-bar" style="height:45%; animation-delay:0.2s;"></div>
+                <div class="chart-bar" style="height:85%; animation-delay:0.25s;"></div>
+                <div class="chart-bar" style="height:60%; animation-delay:0.3s;"></div>
+                <div class="chart-bar" style="height:75%; animation-delay:0.35s;"></div>
+                <div class="chart-bar" style="height:90%; animation-delay:0.4s;"></div>
+                <div class="chart-bar" style="height:65%; animation-delay:0.45s;"></div>
+              </div>
+              <div class="mockup-tasks">
+                <div class="mockup-task">
+                  <div class="task-check done"></div>
+                  Design system audit
+                  <span class="task-tag tag-low">Done</span>
+                </div>
+                <div class="mockup-task">
+                  <div class="task-check"></div>
+                  API integration v2
+                  <span class="task-tag tag-high">High</span>
+                </div>
+                <div class="mockup-task">
+                  <div class="task-check"></div>
+                  Q3 roadmap review
+                  <span class="task-tag tag-mid">Mid</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating cards -->
+        <div class="hero-float-card card-a">
+          <span>✅</span>
+          <div>
+            <div style="font-weight:600; font-size:12px;">Sprint completed!</div>
+            <div style="font-size:11px; color:var(--color-text-muted);">14 tasks shipped</div>
+          </div>
+        </div>
+
+        <div class="hero-float-card card-b">
+          <span style="font-size:20px;">🚀</span>
+          <div>
+            <div style="font-weight:600; font-size:12px;">99.9% uptime</div>
+            <div style="font-size:11px; color:var(--color-text-muted);">This month</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LOGOS ============ -->
+    <section class="logos-section">
+      <div class="container">
+        <p class="logos-label">Trusted by teams at</p>
+        <div class="logos-track">
+          <span class="logo-item">Acecraft</span>
+          <span class="logo-item">Meridian</span>
+          <span class="logo-item">Stackwise</span>
+          <span class="logo-item">Lunara</span>
+          <span class="logo-item">Vortex</span>
+          <span class="logo-item">Prismly</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="stats-grid" data-reveal>
+          <div class="stat-item">
+            <div class="stat-value" data-count="12" data-suffix="K+">0</div>
+            <div class="stat-label">Teams worldwide</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" data-count="98" data-suffix="%">0</div>
+            <div class="stat-label">Customer satisfaction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" data-count="4.2" data-suffix="M">0</div>
+            <div class="stat-label">Tasks completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" data-count="99.9" data-suffix="%">0</div>
+            <div class="stat-label">Uptime SLA</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section bg-secondary" id="features">
+      <div class="container">
+        <div class="section-header centered" data-reveal>
+          <span class="section-label">Features</span>
+          <h2 class="section-title">Everything your team needs,<br /><span class="text-gradient">nothing you don't</span></h2>
+          <p class="section-subtitle">Built for fast-moving teams who want clarity, not complexity. Six tools in one platform.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="card feature-card" data-reveal data-delay="0">
+            <div class="feature-icon feature-icon-primary">📋</div>
+            <h3 class="feature-title">Smart Task Management</h3>
+            <p class="feature-desc">Create, assign, and prioritize tasks in seconds. Use AI suggestions to break down big goals into manageable steps automatically.</p>
+            <a href="features.html" class="feature-link">Learn more <span>→</span></a>
+          </div>
+
+          <div class="card feature-card" data-reveal data-delay="80">
+            <div class="feature-icon feature-icon-accent">📅</div>
+            <h3 class="feature-title">Visual Timeline</h3>
+            <p class="feature-desc">Drag-and-drop Gantt-style timelines give your team a clear picture of project progress, dependencies, and deadlines at a glance.</p>
+            <a href="features.html" class="feature-link">Learn more <span>→</span></a>
+          </div>
+
+          <div class="card feature-card" data-reveal data-delay="160">
+            <div class="feature-icon feature-icon-success">💬</div>
+            <h3 class="feature-title">Contextual Collaboration</h3>
+            <p class="feature-desc">Comment directly on tasks, share files, and mention teammates — all discussion lives exactly where the work happens.</p>
+            <a href="features.html" class="feature-link">Learn more <span>→</span></a>
+          </div>
+
+          <div class="card feature-card" data-reveal data-delay="0">
+            <div class="feature-icon feature-icon-primary">📊</div>
+            <h3 class="feature-title">Live Dashboards</h3>
+            <p class="feature-desc">Build custom dashboards with drag-and-drop widgets. Track velocity, burndown, and team capacity in real time.</p>
+            <a href="features.html" class="feature-link">Learn more <span>→</span></a>
+          </div>
+
+          <div class="card feature-card" data-reveal data-delay="80">
+            <div class="feature-icon feature-icon-accent">🔗</div>
+            <h3 class="feature-title">60+ Integrations</h3>
+            <p class="feature-desc">Connect Flowdesk to Slack, GitHub, Figma, Notion, and 60+ other tools your team already uses — in a few clicks, no code needed.</p>
+            <a href="features.html" class="feature-link">Learn more <span>→</span></a>
+          </div>
+
+          <div class="card feature-card" data-reveal data-delay="160">
+            <div class="feature-icon feature-icon-success">🔒</div>
+            <h3 class="feature-title">Enterprise Security</h3>
+            <p class="feature-desc">SOC 2 Type II certified, SSO, 2FA, granular permissions, and audit logs. Your data stays yours — encrypted at rest and in transit.</p>
+            <a href="features.html" class="feature-link">Learn more <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-label">How it works</span>
+          <h2 class="section-title">Up and running<br /><span class="text-gradient">in under 5 minutes</span></h2>
+        </div>
+
+        <div class="steps-container">
+          <div class="steps-list">
+            <div class="step-item active" data-reveal>
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Create your workspace</h3>
+                <p>Sign up, name your workspace, and invite your team. Flowdesk auto-creates a starter project so you're not staring at a blank screen.</p>
+              </div>
+            </div>
+
+            <div class="step-item" data-reveal data-delay="100">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Add your projects &amp; tasks</h3>
+                <p>Import from Trello, Asana, or start fresh. Use templates for sprints, product launches, or client work — pre-loaded with best practices.</p>
+              </div>
+            </div>
+
+            <div class="step-item" data-reveal data-delay="200">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Connect your tools</h3>
+                <p>Link Slack for notifications, GitHub for PR tracking, and your calendar for deadline sync. Everything in one feed, zero fragmentation.</p>
+              </div>
+            </div>
+
+            <div class="step-item" data-reveal data-delay="300">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3>Ship and measure</h3>
+                <p>Watch your team move. Use reports and dashboards to catch blockers early, celebrate wins, and keep every stakeholder informed.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="steps-visual" data-reveal data-delay="200">
+            <div class="steps-screen">
+              <div style="display:flex; flex-direction:column; gap:12px; height:100%;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span style="font-weight:700; font-size:14px;">Q3 Launch Plan</span>
+                  <span class="badge badge-success">On track</span>
+                </div>
+                <div style="display:flex; gap:12px; flex:1; overflow:hidden;">
+                  <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                    <div style="font-size:10px; color:var(--color-text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; padding-bottom:6px; border-bottom:1px solid var(--color-border);">To Do</div>
+                    <div style="background:var(--color-bg-elevated); border-radius:8px; padding:10px; font-size:11px; border-left:3px solid var(--color-primary);">
+                      <div style="font-weight:600; margin-bottom:4px;">API Rate Limiting</div>
+                      <div style="color:var(--color-text-muted);">Backend · 3 pts</div>
+                    </div>
+                    <div style="background:var(--color-bg-elevated); border-radius:8px; padding:10px; font-size:11px; border-left:3px solid var(--color-accent);">
+                      <div style="font-weight:600; margin-bottom:4px;">Onboarding Flow</div>
+                      <div style="color:var(--color-text-muted);">Design · 5 pts</div>
+                    </div>
+                  </div>
+                  <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                    <div style="font-size:10px; color:var(--color-text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; padding-bottom:6px; border-bottom:1px solid var(--color-border);">In Progress</div>
+                    <div style="background:var(--color-bg-elevated); border-radius:8px; padding:10px; font-size:11px; border-left:3px solid var(--color-warning);">
+                      <div style="font-weight:600; margin-bottom:4px;">Dashboard v2</div>
+                      <div style="color:var(--color-text-muted);">Frontend · 8 pts</div>
+                    </div>
+                  </div>
+                  <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                    <div style="font-size:10px; color:var(--color-text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; padding-bottom:6px; border-bottom:1px solid var(--color-border);">Done</div>
+                    <div style="background:var(--color-bg-elevated); border-radius:8px; padding:10px; font-size:11px; border-left:3px solid var(--color-success); opacity:0.7;">
+                      <div style="font-weight:600; margin-bottom:4px; text-decoration:line-through;">Auth system</div>
+                      <div style="color:var(--color-text-muted);">Backend · 5 pts</div>
+                    </div>
+                    <div style="background:var(--color-bg-elevated); border-radius:8px; padding:10px; font-size:11px; border-left:3px solid var(--color-success); opacity:0.7;">
+                      <div style="font-weight:600; margin-bottom:4px; text-decoration:line-through;">DB schema</div>
+                      <div style="color:var(--color-text-muted);">Backend · 3 pts</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTEGRATIONS ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header centered" data-reveal>
+          <span class="section-label">Integrations</span>
+          <h2 class="section-title">Works with your<br /><span class="text-gradient">existing stack</span></h2>
+          <p class="section-subtitle">Connect to the tools your team loves. No rebuilding workflows from scratch.</p>
+        </div>
+
+        <div class="integrations-grid" data-reveal>
+          <div class="integration-item">
+            <div class="integration-icon">💬</div>
+            <span>Slack</span>
+          </div>
+          <div class="integration-item">
+            <div class="integration-icon">🐙</div>
+            <span>GitHub</span>
+          </div>
+          <div class="integration-item">
+            <div class="integration-icon">🎨</div>
+            <span>Figma</span>
+          </div>
+          <div class="integration-item">
+            <div class="integration-icon">📝</div>
+            <span>Notion</span>
+          </div>
+          <div class="integration-item">
+            <div class="integration-icon">📧</div>
+            <span>Gmail</span>
+          </div>
+          <div class="integration-item">
+            <div class="integration-icon">📹</div>
+            <span>Zoom</span>
+          </div>
+          <div class="integration-item">
+            <div class="integration-icon">☁️</div>
+            <span>Google Drive</span>
+          </div>
+          <div class="integration-item">
+            <div class="integration-icon">🔷</div>
+            <span>Jira</span>
+          </div>
+          <div class="integration-item">
+            <div class="integration-icon">📅</div>
+            <span>Calendar</span>
+          </div>
+          <div class="integration-item">
+            <div class="integration-icon">🔁</div>
+            <span>Zapier</span>
+          </div>
+          <div class="integration-item">
+            <div class="integration-icon">⚡</div>
+            <span>Linear</span>
+          </div>
+          <div class="integration-item">
+            <div class="integration-icon">➕</div>
+            <span>60+ more</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section bg-secondary" id="testimonials">
+      <div class="container">
+        <div class="section-header centered" data-reveal>
+          <span class="section-label">Testimonials</span>
+          <h2 class="section-title">Teams that switched<br /><span class="text-gradient">never looked back</span></h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="card testimonial-card" data-reveal data-delay="0">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-quote">"We moved from Jira and Notion juggling to Flowdesk in a week. Our standups went from 30 minutes to 10. I didn't think that was possible until we tried it."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">SL</div>
+              <div>
+                <div class="author-name">Sarah Lin</div>
+                <div class="author-title">VP Engineering, Acecraft</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card testimonial-card" data-reveal data-delay="100">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-quote">"Flowdesk's timeline view alone was worth switching. Now every stakeholder can see exactly where a project stands without scheduling a meeting to explain it."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg, #0891B2, #06B6D4);">MK</div>
+              <div>
+                <div class="author-name">Marcus Köhler</div>
+                <div class="author-title">Product Lead, Meridian</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card testimonial-card" data-reveal data-delay="200">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-quote">"The AI task breakdown is genuinely magical. I paste in a project brief and get a full task tree in seconds. My whole team uses it every sprint now."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg, #059669, #10B981);">AP</div>
+              <div>
+                <div class="author-name">Anita Patel</div>
+                <div class="author-title">CTO, Stackwise</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING PREVIEW ============ -->
+    <section class="section" id="pricing-preview">
+      <div class="container">
+        <div class="section-header centered" data-reveal>
+          <span class="section-label">Simple pricing</span>
+          <h2 class="section-title">Start free.<br /><span class="text-gradient">Scale as you grow.</span></h2>
+          <p class="section-subtitle">No hidden fees, no per-seat surprises. All plans include unlimited projects.</p>
+        </div>
+
+        <div style="text-align:center; margin-bottom:var(--space-8);" data-reveal>
+          <a href="pricing.html" class="btn btn-primary btn-lg">See all pricing plans →</a>
+        </div>
+
+        <div class="pricing-grid" data-reveal>
+          <!-- Starter -->
+          <div class="card pricing-card">
+            <div class="plan-name">Starter</div>
+            <div class="plan-price">
+              <span class="price-currency" style="font-size:var(--text-2xl); margin-top:8px; color:var(--color-text-secondary);">$</span>
+              <span class="price-amount" data-price-monthly="0" data-price-annual="0">0</span>
+              <span class="price-period">/month</span>
+            </div>
+            <p class="plan-desc">Perfect for freelancers and small teams getting started with project management.</p>
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="check-icon">✓</span> Up to 5 team members</li>
+              <li class="plan-feature"><span class="check-icon">✓</span> 10 active projects</li>
+              <li class="plan-feature"><span class="check-icon">✓</span> Basic task management</li>
+              <li class="plan-feature"><span class="check-icon">✓</span> 5 GB storage</li>
+              <li class="plan-feature"><span class="check-icon muted">✗</span><span style="color:var(--color-text-muted);">AI features</span></li>
+            </ul>
+            <a href="signup.html" class="btn btn-secondary btn-full">Get started free</a>
+          </div>
+
+          <!-- Pro (Popular) -->
+          <div class="card pricing-card popular">
+            <div class="popular-badge">Most Popular</div>
+            <div class="plan-name">Pro</div>
+            <div class="plan-price">
+              <span class="price-currency" style="font-size:var(--text-2xl); margin-top:8px; color:var(--color-text-secondary);">$</span>
+              <span class="price-amount" data-price-monthly="29" data-price-annual="23">29</span>
+              <span class="price-period">/month</span>
+            </div>
+            <p class="plan-desc">For growing teams that need advanced features, more power, and integrations.</p>
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="check-icon">✓</span> Up to 25 team members</li>
+              <li class="plan-feature"><span class="check-icon">✓</span> Unlimited projects</li>
+              <li class="plan-feature"><span class="check-icon">✓</span> AI task suggestions</li>
+              <li class="plan-feature"><span class="check-icon">✓</span> Timeline &amp; Gantt views</li>
+              <li class="plan-feature"><span class="check-icon">✓</span> 60+ integrations</li>
+            </ul>
+            <a href="signup.html" class="btn btn-primary btn-full">Start 14-day free trial</a>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="card pricing-card">
+            <div class="plan-name">Enterprise</div>
+            <div class="plan-price">
+              <span class="price-amount">Custom</span>
+            </div>
+            <p class="plan-desc">For large organizations with complex needs, compliance requirements, and dedicated support.</p>
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="check-icon">✓</span> Unlimited members</li>
+              <li class="plan-feature"><span class="check-icon">✓</span> SSO &amp; SAML</li>
+              <li class="plan-feature"><span class="check-icon">✓</span> SOC 2 Type II</li>
+              <li class="plan-feature"><span class="check-icon">✓</span> Dedicated CSM</li>
+              <li class="plan-feature"><span class="check-icon">✓</span> Custom SLA</li>
+            </ul>
+            <a href="contact.html" class="btn btn-secondary btn-full">Contact sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section bg-secondary">
+      <div class="container">
+        <div class="section-header centered" data-reveal>
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title">Common questions</h2>
+        </div>
+
+        <div class="faq-list" data-reveal>
+          <div class="faq-item open">
+            <button class="faq-question">
+              Is there really a free plan forever?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Yes. Our Starter plan is permanently free — no credit card required, no time limit. You get up to 5 team members, 10 projects, and core task management features. We believe teams should experience real value before committing.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Can I import from Jira, Trello, or Asana?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Absolutely. Flowdesk has one-click importers for Jira, Trello, Asana, Monday.com, and CSV files. Most teams complete their full migration in under 30 minutes. Your data, history, and attachments all transfer cleanly.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              How does the 14-day trial work?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Sign up for any paid plan and get full access for 14 days at no charge. No credit card needed to start. At the end of the trial, you can subscribe or downgrade to the free plan — your data is always safe either way.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              What happens to my data if I cancel?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Your data stays accessible in a read-only archive for 30 days after cancellation, giving you time to export everything. We provide full JSON and CSV exports of all your projects, tasks, and comments at any time.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Do you offer discounts for nonprofits or education?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Yes — verified nonprofits and educational institutions receive 50% off all paid plans. Reach out to our team via the contact page with documentation and we'll set you up within 24 hours.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section cta-section">
+      <div class="cta-bg"></div>
+      <div class="container">
+        <div class="cta-box" data-reveal>
+          <span class="badge badge-primary" style="margin-bottom:var(--space-5);">🎯 Free 14-day trial</span>
+          <h2 class="cta-title">Ready to bring your<br /><span class="text-gradient">team into flow?</span></h2>
+          <p class="cta-subtitle">Join 12,000+ teams who ship faster and stress less with Flowdesk.</p>
+          <div class="cta-actions">
+            <a href="signup.html" class="btn btn-primary btn-lg">Start for free</a>
+            <a href="contact.html" class="btn btn-secondary btn-lg">Talk to sales</a>
+          </div>
+          <p class="cta-note">No credit card required · Setup in 5 minutes · Cancel anytime</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">⚡</div>
+            Flowdesk
+          </a>
+          <p>The all-in-one workspace for modern teams. Manage projects, track tasks, and collaborate in real time — without the chaos.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">⌥</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="features.html" class="footer-link">Features</a></li>
+            <li><a href="pricing.html" class="footer-link">Pricing</a></li>
+            <li><a href="#" class="footer-link">Changelog</a></li>
+            <li><a href="#" class="footer-link">Roadmap</a></li>
+            <li><a href="#" class="footer-link">Status</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">About</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+            <li><a href="#" class="footer-link">Blog</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+            <li><a href="#" class="footer-link">Press kit</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Documentation</a></li>
+            <li><a href="#" class="footer-link">API reference</a></li>
+            <li><a href="#" class="footer-link">Integrations</a></li>
+            <li><a href="#" class="footer-link">Templates</a></li>
+            <li><a href="#" class="footer-link">Community</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Flowdesk, Inc. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

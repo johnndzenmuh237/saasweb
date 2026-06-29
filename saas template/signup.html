@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create your free Flowdesk account. No credit card required." />
+  <title>Sign Up Free — Flowdesk</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <script src="js/theme.js" defer></script>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       FIREBASE SDK  (v9 modular — compat layer loaded via CDN)
+       ════════════════════════════════════════════════════════════════ -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <style>
+    /* ── auth-page already defined in style.css ── */
+
+    /* Benefit check rows */
+    .benefit-row {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+    .benefit-check {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-glow);
+      border: 1px solid rgba(79,70,229,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .benefit-title  { font-weight: 600; font-size: var(--text-sm); margin-bottom: 2px; }
+    .benefit-detail { font-size: var(--text-xs); color: var(--color-text-secondary); }
+
+    /* Error / success banners */
+    .form-banner {
+      display: none;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-5);
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .form-banner.error   { background: rgba(239,68,68,.12);  border:1px solid rgba(239,68,68,.3);  color:#F87171; display:flex; }
+    .form-banner.success { background: rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.3); color:#34D399; display:flex; }
+
+    /* Spinner inside button */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .btn-spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      display: inline-block;
+    }
+
+    /* Social proof bar */
+    .proof-bar {
+      display: flex;
+      gap: var(--space-6);
+      padding: var(--space-5);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      margin-top: var(--space-10);
+    }
+    .proof-bar-divider { width:1px; background: var(--color-border); }
+    .proof-num {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      background: linear-gradient(135deg,#818CF8,#4F46E5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .proof-lbl { font-size: 10px; color: var(--color-text-muted); margin-top: 2px; }
+
+    /* Trust badges */
+    .trust-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-top: var(--space-6);
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-page">
+
+  <!-- ══════════════════════════════════════════════════════════════
+       LEFT PANEL — branding, benefits, social proof
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="auth-visual">
+    <div class="auth-visual-content">
+
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo" style="margin-bottom:var(--space-12);display:inline-flex;">
+        <!--
+          YOUR LOGO — uncomment & set src:
+          <img src="images/logo.svg" alt="Your Brand" style="height:32px;width:auto;" />
+        -->
+        <div class="nav-logo-icon">⚡</div>
+        Flowdesk
+      </a>
+
+      <h2 style="font-size:clamp(var(--text-2xl),3vw,var(--text-4xl));font-weight:800;margin-bottom:var(--space-5);line-height:1.15;">
+        Everything included,<br /><span class="text-gradient">free to start.</span>
+      </h2>
+      <p style="font-size:var(--text-base);color:var(--color-text-secondary);line-height:var(--leading-relaxed);max-width:360px;">
+        Set up your workspace in under 5 minutes. No credit card, no sales call, no catch.
+      </p>
+
+      <!-- Benefits -->
+      <div style="margin-top:var(--space-10);display:flex;flex-direction:column;gap:var(--space-4);">
+        <div class="benefit-row">
+          <div class="benefit-check">✓</div>
+          <div>
+            <div class="benefit-title">Free forever on Starter</div>
+            <div class="benefit-detail">Up to 5 members, 10 projects. No expiry.</div>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-check">✓</div>
+          <div>
+            <div class="benefit-title">14-day Pro trial included</div>
+            <div class="benefit-detail">Full access to AI, Gantt, and all integrations.</div>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-check">✓</div>
+          <div>
+            <div class="benefit-title">Import in one click</div>
+            <div class="benefit-detail">Bring your Trello, Jira, or Asana data instantly.</div>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-check">✓</div>
+          <div>
+            <div class="benefit-title">No credit card ever</div>
+            <div class="benefit-detail">Stay free forever. Upgrade only when it makes sense.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social proof numbers -->
+      <div class="proof-bar">
+        <div style="text-align:center;flex:1;">
+          <div class="proof-num">12K+</div>
+          <div class="proof-lbl">Teams</div>
+        </div>
+        <div class="proof-bar-divider"></div>
+        <div style="text-align:center;flex:1;">
+          <div class="proof-num">4.2M</div>
+          <div class="proof-lbl">Tasks shipped</div>
+        </div>
+        <div class="proof-bar-divider"></div>
+        <div style="text-align:center;flex:1;">
+          <div class="proof-num">98%</div>
+          <div class="proof-lbl">Happy</div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="auth-testimonial">
+        <div class="stars" style="font-size:12px;margin-bottom:var(--space-3);">★★★★★</div>
+        <p style="font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">
+          "We were up and running with our whole team in literally one afternoon. The import from Asana was seamless."
+        </p>
+        <div style="display:flex;align-items:center;gap:var(--space-3);">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#059669,#10B981);">
+            <!--
+              TESTIMONIAL AVATAR PHOTO — uncomment & set src:
+              <img src="images/testimonials/nadia-roth.jpg" alt="Nadia Roth"
+                   style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+            -->
+            NR
+          </div>
+          <div>
+            <div style="font-size:var(--text-sm);font-weight:600;">Nadia Roth</div>
+            <div style="font-size:var(--text-xs);color:var(--color-text-muted);">Director of Product, Prismly</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════════
+       RIGHT PANEL — signup form + Firebase auth
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="auth-form-side">
+    <div class="auth-form-container">
+
+      <!-- Mobile logo (hidden on desktop by CSS) -->
+      <a href="index.html" class="nav-logo" id="mobile-logo"
+         style="display:none;margin-bottom:var(--space-8);">
+        <div class="nav-logo-icon">⚡</div>
+        Flowdesk
+      </a>
+
+      <h1 class="auth-title">Create your account</h1>
+      <p class="auth-subtitle">Free forever on Starter · 14-day Pro trial included</p>
+
+      <!-- Error / success banner (shown by JS) -->
+      <div class="form-banner" id="auth-banner">
+        <span id="auth-banner-icon"></span>
+        <span id="auth-banner-msg"></span>
+      </div>
+
+      <!-- ── Google Sign-Up ── -->
+      <button class="btn-google" id="btn-google-signup" type="button">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M17.64 9.20455C17.64 8.56636 17.5827 7.95273 17.4764 7.36364H9V10.845H13.8436C13.635 11.97 13.0009 12.9231 12.0477 13.5613V15.8195H14.9564C16.6582 14.2527 17.64 11.9455 17.64 9.20455Z" fill="#4285F4"/>
+          <path d="M9 18C11.43 18 13.4673 17.1941 14.9564 15.8195L12.0477 13.5613C11.2418 14.1013 10.2109 14.4204 9 14.4204C6.65591 14.4204 4.67182 12.8372 3.96409 10.71H0.957275V13.0418C2.43818 15.9831 5.48182 18 9 18Z" fill="#34A853"/>
+          <path d="M3.96409 10.71C3.78409 10.17 3.68182 9.59318 3.68182 9C3.68182 8.40682 3.78409 7.83 3.96409 7.29V4.95818H0.957275C0.347727 6.17318 0 7.54773 0 9C0 10.4523 0.347727 11.8268 0.957275 13.0418L3.96409 10.71Z" fill="#FBBC05"/>
+          <path d="M9 3.57955C10.3214 3.57955 11.5077 4.03364 12.4405 4.92545L15.0218 2.34409C13.4632 0.891818 11.4259 0 9 0C5.48182 0 2.43818 2.01682 0.957275 4.95818L3.96409 7.29C4.67182 5.16273 6.65591 3.57955 9 3.57955Z" fill="#EA4335"/>
+        </svg>
+        Continue with Google
+      </button>
+
+      <div class="form-divider">or sign up with email</div>
+
+      <!-- ── Email / Password Signup Form ── -->
+      <form id="signup-form" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="signup-first">
+              First name <span style="color:var(--color-danger);">*</span>
+            </label>
+            <input class="form-input" type="text" id="signup-first"
+                   name="first-name" placeholder="Alex"
+                   required autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="signup-last">
+              Last name <span style="color:var(--color-danger);">*</span>
+            </label>
+            <input class="form-input" type="text" id="signup-last"
+                   name="last-name" placeholder="Johnson"
+                   required autocomplete="family-name" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signup-email">
+            Work email <span style="color:var(--color-danger);">*</span>
+          </label>
+          <input class="form-input" type="email" id="signup-email"
+                 name="email" placeholder="you@company.com"
+                 required autocomplete="email" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signup-workspace">
+            Workspace name <span style="color:var(--color-danger);">*</span>
+          </label>
+          <div style="position:relative;">
+            <input class="form-input" type="text" id="signup-workspace"
+                   name="workspace" placeholder="acme-team"
+                   required style="padding-right:130px;" />
+            <span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);
+                         font-size:11px;color:var(--color-text-muted);
+                         font-family:var(--font-mono);pointer-events:none;">
+              .flowdesk.io
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signup-password">
+            Password <span style="color:var(--color-danger);">*</span>
+          </label>
+          <div style="position:relative;">
+            <input class="form-input" type="password" id="signup-password"
+                   name="password" placeholder="At least 8 characters"
+                   required autocomplete="new-password"
+                   style="padding-right:3rem;" />
+            <button type="button" id="toggle-pw"
+                    style="position:absolute;right:12px;top:50%;transform:translateY(-50%);
+                           background:none;border:none;cursor:pointer;
+                           color:var(--color-text-muted);font-size:16px;">👁</button>
+          </div>
+          <!-- Password strength bar -->
+          <div style="margin-top:6px;display:flex;gap:4px;" id="pw-strength">
+            <div style="flex:1;height:3px;background:var(--color-bg-elevated);border-radius:2px;" id="s1"></div>
+            <div style="flex:1;height:3px;background:var(--color-bg-elevated);border-radius:2px;" id="s2"></div>
+            <div style="flex:1;height:3px;background:var(--color-bg-elevated);border-radius:2px;" id="s3"></div>
+            <div style="flex:1;height:3px;background:var(--color-bg-elevated);border-radius:2px;" id="s4"></div>
+          </div>
+          <div id="pw-strength-label"
+               style="font-size:10px;color:var(--color-text-muted);margin-top:4px;min-height:14px;"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signup-plan">Starting plan</label>
+          <select class="form-select" id="signup-plan" name="plan">
+            <option value="starter">Starter — Free forever</option>
+            <option value="pro" selected>Pro — 14-day free trial, then $29/mo</option>
+            <option value="enterprise">Enterprise — Contact sales</option>
+          </select>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms" name="terms" required />
+          <label for="terms">
+            I agree to Flowdesk's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+          </label>
+        </div>
+
+        <div class="checkbox-group" style="margin-bottom:var(--space-6);">
+          <input type="checkbox" id="marketing" name="marketing" checked />
+          <label for="marketing">
+            Send me product updates and occasional news. (Unsubscribe anytime.)
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full btn-lg" id="btn-signup">
+          Create my account →
+        </button>
+
+      </form>
+
+      <p class="form-footer-text">
+        Already have an account? <a href="login.html">Sign in</a>
+      </p>
+
+      <div class="trust-badges">
+        <span class="trust-badge">🔒 SSL Secured</span>
+        <span class="trust-badge">🛡 SOC 2 Certified</span>
+        <span class="trust-badge">💳 No card needed</span>
+      </div>
+
+      <p style="text-align:center;margin-top:var(--space-6);">
+        <a href="index.html"
+           style="font-size:var(--text-sm);color:var(--color-text-muted);
+                  display:inline-flex;align-items:center;gap:4px;">
+          ← Back to flowdesk.io
+        </a>
+      </p>
+
+    </div>
+  </div><!-- /auth-form-side -->
+
+</div><!-- /auth-page -->
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     FIREBASE CONFIG — shared file, see js/firebase-config.js to paste keys
+     AFTER SIGN-UP: users are redirected straight to dashboard.html
+     ════════════════════════════════════════════════════════════════ -->
+<script src="js/firebase-config.js"></script>
+<script>
+/* Show mobile logo on small screens */
+if (window.innerWidth <= 1024) {
+  document.getElementById('mobile-logo').style.display = 'inline-flex';
+}
+
+/* ── Banner helpers ── */
+const banner    = document.getElementById('auth-banner');
+const bannerMsg = document.getElementById('auth-banner-msg');
+const bannerIco = document.getElementById('auth-banner-icon');
+
+function showBanner(type, icon, msg) {
+  banner.className = 'form-banner ' + type;
+  bannerIco.textContent = icon;
+  bannerMsg.textContent = msg;
+  banner.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+function hideBanner() {
+  banner.className = 'form-banner';
+}
+
+/* ── Button state ── */
+const submitBtn = document.getElementById('btn-signup');
+function setLoading(on) {
+  submitBtn.disabled = on;
+  submitBtn.innerHTML = on
+    ? '<span class="btn-spinner"></span> Creating account…'
+    : 'Create my account →';
+}
+
+/* ── Password strength ── */
+const pwInput = document.getElementById('signup-password');
+const strengthBars = ['s1','s2','s3','s4'].map(id => document.getElementById(id));
+const strengthLabel = document.getElementById('pw-strength-label');
+const STRENGTH_META = [
+  { color:'#EF4444', label:'Too short' },
+  { color:'#F59E0B', label:'Weak' },
+  { color:'#3B82F6', label:'Good' },
+  { color:'#10B981', label:'Strong' },
+];
+pwInput.addEventListener('input', () => {
+  const v = pwInput.value;
+  let s = 0;
+  if (v.length >= 8)          s++;
+  if (/[A-Z]/.test(v))        s++;
+  if (/[0-9]/.test(v))        s++;
+  if (/[^A-Za-z0-9]/.test(v)) s++;
+  const meta = STRENGTH_META[Math.max(s-1, 0)];
+  strengthBars.forEach((b, i) => {
+    b.style.background = i < s ? meta.color : 'var(--color-bg-elevated)';
+  });
+  strengthLabel.textContent = v.length ? meta.label : '';
+  strengthLabel.style.color = meta.color;
+});
+
+/* ── Workspace slug sanitizer ── */
+const wsInput = document.getElementById('signup-workspace');
+wsInput.addEventListener('input', () => {
+  wsInput.value = wsInput.value.toLowerCase()
+    .replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+});
+
+/* ── Password toggle ── */
+document.getElementById('toggle-pw').addEventListener('click', () => {
+  const isHidden = pwInput.type === 'password';
+  pwInput.type = isHidden ? 'text' : 'password';
+  document.getElementById('toggle-pw').textContent = isHidden ? '🙈' : '👁';
+});
+
+/* ── Firebase init (only if config is filled) ── */
+let auth, db, googleProvider;
+
+if (!CONFIG_MISSING) {
+  firebase.initializeApp(FIREBASE_CONFIG);
+  auth           = firebase.auth();
+  db             = firebase.firestore();
+  googleProvider = new firebase.auth.GoogleAuthProvider();
+}
+
+/* ── Save new user profile to Firestore ── */
+async function saveUserProfile(user, extra = {}) {
+  if (!db) return;
+  await db.collection('users').doc(user.uid).set({
+    uid:         user.uid,
+    email:       user.email,
+    displayName: user.displayName || ((extra.firstName || '') + ' ' + (extra.lastName || '')).trim(),
+    photoURL:    user.photoURL    || '',
+    workspace:   extra.workspace  || '',
+    plan:        extra.plan       || 'pro',
+    createdAt:   firebase.firestore.FieldValue.serverTimestamp(),
+    marketing:   extra.marketing  ?? true,
+  }, { merge: true });
+}
+
+/* ── Google Sign-Up ── */
+document.getElementById('btn-google-signup').addEventListener('click', async () => {
+  hideBanner();
+  if (CONFIG_MISSING) {
+    showBanner('error', '⚙️',
+      'Firebase not configured yet. Fill in FIREBASE_CONFIG in js/firebase-config.js.');
+    return;
+  }
+  try {
+    const result = await auth.signInWithPopup(googleProvider);
+    await saveUserProfile(result.user);
+    showBanner('success', '✅', 'Account created! Redirecting to your dashboard…');
+    setTimeout(() => { window.location.href = DASHBOARD_URL; }, 800);
+  } catch (err) {
+    showBanner('error', '❌', friendlyAuthError(err.code));
+  }
+});
+
+/* ── Email / Password Sign-Up ── */
+document.getElementById('signup-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  hideBanner();
+
+  /* Basic client-side validation */
+  const firstName = document.getElementById('signup-first').value.trim();
+  const lastName  = document.getElementById('signup-last').value.trim();
+  const email     = document.getElementById('signup-email').value.trim();
+  const workspace = wsInput.value.trim();
+  const password  = pwInput.value;
+  const plan      = document.getElementById('signup-plan').value;
+  const marketing = document.getElementById('marketing').checked;
+  const termsOk   = document.getElementById('terms').checked;
+
+  if (!firstName || !lastName) {
+    showBanner('error','⚠️','Please enter your first and last name.'); return;
+  }
+  if (!email) {
+    showBanner('error','⚠️','Please enter a valid email address.'); return;
+  }
+  if (!workspace) {
+    showBanner('error','⚠️','Please choose a workspace name.'); return;
+  }
+  if (password.length < 8) {
+    showBanner('error','⚠️','Password must be at least 8 characters.'); return;
+  }
+  if (!termsOk) {
+    showBanner('error','⚠️','Please accept the Terms of Service to continue.'); return;
+  }
+
+  if (CONFIG_MISSING) {
+    showBanner('error','⚙️',
+      'Firebase not configured yet. Fill in FIREBASE_CONFIG in js/firebase-config.js.');
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    /* 1. Create Firebase auth user */
+    const cred = await auth.createUserWithEmailAndPassword(email, password);
+
+    /* 2. Set display name */
+    await cred.user.updateProfile({ displayName: `${firstName} ${lastName}` });
+
+    /* 3. Save extended profile to Firestore */
+    await saveUserProfile(cred.user, { firstName, lastName, workspace, plan, marketing });
+
+    /* 4. Send email verification (non-blocking — user still lands on the dashboard) */
+    cred.user.sendEmailVerification().catch(() => {});
+
+    showBanner('success','✅',
+      "Account created! We've sent a verification link to your inbox. Redirecting to your dashboard…");
+
+    setTimeout(() => { window.location.href = DASHBOARD_URL; }, 1200);
+
+  } catch (err) {
+    setLoading(false);
+    showBanner('error','❌', friendlyAuthError(err.code));
+  }
+});
+
+/* ── Auto-redirect if already logged in ── */
+if (!CONFIG_MISSING) {
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      window.location.href = DASHBOARD_URL;
+    }
+  });
+}
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>

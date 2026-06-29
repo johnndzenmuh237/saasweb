@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get in touch with the Flowdesk team — sales, support, partnerships, or just say hello." />
+  <title>Contact — Flowdesk</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <script src="js/theme.js" defer></script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">⚡</div>
+        Flowdesk
+      </a>
+      <div class="nav-links">
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="index.html#testimonials" class="nav-link">Customers</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-secondary btn-sm">Sign in</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Start free trial</a>
+        <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="badge badge-accent" style="margin-bottom:var(--space-5);">💬 We're here to help</span>
+        <h1 class="page-hero-title">Let's talk.<br /><span class="text-gradient">We respond fast.</span></h1>
+        <p class="page-hero-subtitle">Whether you have a question about features, pricing, or just want a demo — our team typically replies within a few hours.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT CONTENT -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid" data-reveal>
+
+          <!-- LEFT: contact info -->
+          <div class="contact-info">
+            <h2>How can we help?</h2>
+            <p>Choose the right channel below — or fill in the form and we'll route your message to the right person automatically.</p>
+
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="contact-method-icon">💬</div>
+                <div>
+                  <div class="contact-method-title">Live Chat</div>
+                  <div class="contact-method-detail">Available Mon–Fri, 9am–6pm EST. Fastest for quick questions.</div>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-method-icon">📧</div>
+                <div>
+                  <div class="contact-method-title">Email Support</div>
+                  <div class="contact-method-detail"><a href="mailto:hello@flowdesk.io" style="color:var(--color-primary-light);">hello@flowdesk.io</a> — we reply within 4 hours on business days.</div>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-method-icon">📞</div>
+                <div>
+                  <div class="contact-method-title">Sales &amp; Enterprise</div>
+                  <div class="contact-method-detail"><a href="mailto:sales@flowdesk.io" style="color:var(--color-primary-light);">sales@flowdesk.io</a> — book a demo, get a custom quote, or discuss volume pricing.</div>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-method-icon">📚</div>
+                <div>
+                  <div class="contact-method-title">Help Center</div>
+                  <div class="contact-method-detail">Hundreds of guides, tutorials, and video walkthroughs at <a href="#" style="color:var(--color-primary-light);">help.flowdesk.io</a></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Office info -->
+            <div style="margin-top:var(--space-8); padding:var(--space-6); background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:var(--radius-lg);">
+              <div style="font-weight:700; margin-bottom:var(--space-3);">🏢 Headquarters</div>
+              <p style="font-size:var(--text-sm); color:var(--color-text-secondary); line-height:var(--leading-relaxed);">
+                Flowdesk, Inc.<br />
+                340 Pine Street, Suite 800<br />
+                San Francisco, CA 94104<br />
+                United States
+              </p>
+            </div>
+
+            <!-- Status -->
+            <div style="margin-top:var(--space-4); padding:var(--space-4) var(--space-5); background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:var(--radius-lg); display:flex; align-items:center; gap:var(--space-3);">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--color-success);box-shadow:0 0 8px var(--color-success);flex-shrink:0;"></span>
+              <span style="font-size:var(--text-sm); color:var(--color-text-secondary);">All systems operational — <a href="#" style="color:var(--color-success);">status.flowdesk.io</a></span>
+            </div>
+          </div>
+
+          <!-- RIGHT: contact form -->
+          <div class="card card-elevated" style="padding:var(--space-10);">
+            <h3 style="font-size:var(--text-2xl); margin-bottom:var(--space-2);">Send us a message</h3>
+            <p style="font-size:var(--text-sm); color:var(--color-text-secondary); margin-bottom:var(--space-8);">We'll get back to you within one business day.</p>
+
+            <form id="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="first-name">First name <span style="color:var(--color-danger);">*</span></label>
+                  <input class="form-input" type="text" id="first-name" name="first-name" placeholder="Alex" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="last-name">Last name <span style="color:var(--color-danger);">*</span></label>
+                  <input class="form-input" type="text" id="last-name" name="last-name" placeholder="Johnson" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Work email <span style="color:var(--color-danger);">*</span></label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="alex@company.com" required />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="company">Company</label>
+                  <input class="form-input" type="text" id="company" name="company" placeholder="Acme Inc." />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="team-size">Team size</label>
+                  <select class="form-select" id="team-size" name="team-size">
+                    <option value="" disabled selected>Select range</option>
+                    <option value="1-5">1–5 people</option>
+                    <option value="6-25">6–25 people</option>
+                    <option value="26-100">26–100 people</option>
+                    <option value="100+">100+ people</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="subject">Subject <span style="color:var(--color-danger);">*</span></label>
+                <select class="form-select" id="subject" name="subject" required>
+                  <option value="" disabled selected>What's this about?</option>
+                  <option value="demo">Request a demo</option>
+                  <option value="pricing">Pricing &amp; plans</option>
+                  <option value="support">Technical support</option>
+                  <option value="enterprise">Enterprise inquiry</option>
+                  <option value="partnership">Partnership</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Message <span style="color:var(--color-danger);">*</span></label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Tell us a bit about your team and what you're looking for…" required></textarea>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="marketing-consent" name="marketing-consent" />
+                <label for="marketing-consent">I'm okay with receiving occasional product updates and news from Flowdesk. You can unsubscribe at any time.</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full btn-lg">
+                Send message →
+              </button>
+
+              <p style="text-align:center; font-size:var(--text-xs); color:var(--color-text-muted); margin-top:var(--space-4);">
+                By submitting, you agree to our <a href="#" style="color:var(--color-primary-light);">Privacy Policy</a>.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF STRIP -->
+    <section class="section-sm bg-secondary">
+      <div class="container">
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-6); text-align:center;" data-reveal>
+          <div>
+            <div style="font-family:var(--font-display); font-size:var(--text-4xl); font-weight:800; background:linear-gradient(135deg,#818CF8,#4F46E5); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">4h</div>
+            <div style="font-size:var(--text-sm); color:var(--color-text-secondary); margin-top:var(--space-1);">Average first response time</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-display); font-size:var(--text-4xl); font-weight:800; background:linear-gradient(135deg,#818CF8,#4F46E5); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">98%</div>
+            <div style="font-size:var(--text-sm); color:var(--color-text-secondary); margin-top:var(--space-1);">Support satisfaction score</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-display); font-size:var(--text-4xl); font-weight:800; background:linear-gradient(135deg,#818CF8,#4F46E5); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">24/7</div>
+            <div style="font-size:var(--text-sm); color:var(--color-text-secondary); margin-top:var(--space-1);">Help center availability</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">⚡</div>
+            Flowdesk
+          </a>
+          <p>The all-in-one workspace for modern teams. Manage projects, track tasks, and collaborate in real time.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">⌥</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="features.html" class="footer-link">Features</a></li>
+            <li><a href="pricing.html" class="footer-link">Pricing</a></li>
+            <li><a href="#" class="footer-link">Changelog</a></li>
+            <li><a href="#" class="footer-link">Roadmap</a></li>
+            <li><a href="#" class="footer-link">Status</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">About</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+            <li><a href="#" class="footer-link">Blog</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+            <li><a href="#" class="footer-link">Press kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Documentation</a></li>
+            <li><a href="#" class="footer-link">API reference</a></li>
+            <li><a href="#" class="footer-link">Integrations</a></li>
+            <li><a href="#" class="footer-link">Templates</a></li>
+            <li><a href="#" class="footer-link">Community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Flowdesk, Inc. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

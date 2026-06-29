@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Flowdesk's powerful features — task management, Gantt timelines, AI suggestions, integrations, and more." />
+  <title>Features — Flowdesk</title>
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  FAVICON — swap with your own logo file                         ║
+  ║  e.g. <link rel="icon" href="images/your-logo.png" />          ║
+  ╚══════════════════════════════════════════════════════════════════╝
+  -->
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <script src="js/theme.js" defer></script>
+
+  <style>
+    /* ── Shared image-slot helpers ───────────────────────────────── */
+
+    /* Dashed placeholder shown before a real image is added */
+    .img-slot {
+      background: linear-gradient(135deg, rgba(79,70,229,.10), rgba(6,182,212,.06));
+      border: 2px dashed rgba(79,70,229,.30);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--color-text-muted);
+      font-size: 11px;
+      font-weight: 500;
+      text-align: center;
+      padding: 12px 8px;
+      transition: border-color .2s;
+    }
+    .img-slot:hover { border-color: rgba(79,70,229,.55); }
+    .img-slot .slot-icon  { font-size: 22px; opacity: .45; }
+    .img-slot .slot-label { opacity: .70; line-height: 1.5; }
+
+    /* ── Feature-icon slot ───────────────────────────────────────── */
+    /*
+      Each feature card has a .feature-icon-slot wrapper.
+      It shows the emoji by default.
+      To replace with YOUR image:
+        1. Delete the <span class="icon-emoji"> element inside the slot.
+        2. Uncomment the <img> tag below it.
+        3. Set src="" to your icon file path.
+      Recommended icon size: 40 × 40 px  (SVG or PNG with transparency)
+    */
+    .feature-icon-slot {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: var(--space-5);
+      position: relative;
+      flex-shrink: 0;
+    }
+    .feature-icon-slot img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    /* ── Showcase image slot ─────────────────────────────────────── */
+    /*
+      Each showcase section has a .showcase-img-slot div.
+      Replace the placeholder with a real <img> tag.
+      Recommended screenshot size: 800 × 560 px
+    */
+    .showcase-img-slot {
+      width: 100%;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg), var(--shadow-glow-sm);
+      position: relative;
+      z-index: 1;
+    }
+    .showcase-img-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Integration icon slot ───────────────────────────────────── */
+    /*
+      Each integration tile has an .int-icon-slot div.
+      Replace emoji span with <img src="..."> for real brand logos.
+      Recommended logo size: 36 × 36 px (SVG preferred)
+    */
+    .int-icon-slot {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+    .int-icon-slot img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+
+    /* ── Page-hero image ─────────────────────────────────────────── */
+    .page-hero-media {
+      margin-top: var(--space-10);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: var(--shadow-lg), var(--shadow-glow-sm);
+    }
+    .page-hero-media img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ── Responsive tweaks ───────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .features-showcase { grid-template-columns: 1fr !important; direction: ltr !important; }
+      .features-showcase .showcase-content { direction: ltr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════════
+       NAVIGATION
+       ► Logo: uncomment <img> tag and set src to your logo file.
+       ════════════════════════════════════════════════════════════ -->
+  <nav class="nav" role="navigation">
+    <div class="nav-inner">
+
+      <a href="index.html" class="nav-logo">
+        <!--
+          YOUR LOGO — Option A (image):
+            <img src="images/logo.svg" alt="Your Brand" style="height:32px;width:auto;" />
+          Option B (emoji + text, default):
+        -->
+        <div class="nav-logo-icon">⚡</div>
+        Flowdesk
+      </a>
+
+      <div class="nav-links">
+        <a href="features.html" class="nav-link active">Features</a>
+        <a href="pricing.html"  class="nav-link">Pricing</a>
+        <a href="index.html#testimonials" class="nav-link">Customers</a>
+        <a href="contact.html"  class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="login.html"  class="btn btn-secondary btn-sm">Sign in</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Start free trial</a>
+        <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ════════════════════════════════════════════════════════════
+         PAGE HERO
+         ► Add a wide product banner/screenshot below the subtitle.
+         ════════════════════════════════════════════════════════════ -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="badge badge-primary" style="margin-bottom:var(--space-5);">🚀 Features</span>
+        <h1 class="page-hero-title">One platform.<br /><span class="text-gradient">Every workflow.</span></h1>
+        <p class="page-hero-subtitle">From simple task lists to complex cross-team projects — Flowdesk has the tools to handle it all without the learning curve.</p>
+
+        <!--
+        ╔════════════════════════════════════════════════════════════╗
+        ║  HERO BANNER IMAGE                                         ║
+        ║  Recommended: 1800 × 900 px  (wide product screenshot)    ║
+        ║  1. Add your image to images/                             ║
+        ║  2. Uncomment the <img> below and set src=""              ║
+        ║  3. Delete the .img-slot placeholder div                  ║
+        ╚════════════════════════════════════════════════════════════╝
+        -->
+        <div class="page-hero-media">
+          <!-- ▼ YOUR HERO IMAGE ▼ -->
+          <!-- <img src="images/features-hero.png" alt="Flowdesk features overview" /> -->
+
+          <!-- ▼ PLACEHOLDER — remove once image is added ▼ -->
+          <div class="img-slot" style="height:340px; border-radius:var(--radius-xl);">
+            <div class="slot-icon">🖼️</div>
+            <div class="slot-label">
+              Features hero / banner image<br />
+              Recommended: 1800 × 900 px<br />
+              Uncomment &lt;img&gt; above · delete this div
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         FEATURES OVERVIEW GRID
+         ► 9 feature cards, each with:
+             • A swappable icon (emoji OR your own image)
+             • A swappable card image below the description
+             • Editable title + description text
+         ════════════════════════════════════════════════════════════ -->
+    <section class="section bg-secondary">
+      <div class="container">
+
+        <div class="section-header centered" data-reveal>
+          <span class="section-label">Everything included</span>
+          <h2 class="section-title">Built for teams that<br /><span class="text-gradient">move fast</span></h2>
+          <p class="section-subtitle">Nine powerful modules, one unified workspace. No integrations tax.</p>
+        </div>
+
+        <div class="features-grid">
+
+          <!-- ─── FEATURE CARD 1 ────────────────────────────────── -->
+          <div class="card feature-card" data-reveal>
+
+            <!--
+              ICON SLOT 1
+              • Default: emoji 📋
+              • To change emoji: edit the character inside <span class="icon-emoji">
+              • To use your own icon image:
+                  1. Delete <span class="icon-emoji">📋</span>
+                  2. Uncomment the <img> line and set src=""
+                  Recommended: 40×40 px SVG or transparent PNG
+            -->
+            <div class="feature-icon-slot feature-icon-primary">
+              <span class="icon-emoji">📋</span>
+              <!-- <img src="images/icons/task-management.svg" alt="Task management" /> -->
+            </div>
+
+            <h3 class="feature-title">Task Management</h3>
+            <p class="feature-desc">Create tasks with subtasks, due dates, assignees, priorities, and custom fields. Organize by list, board, or calendar view.</p>
+
+            <!--
+              CARD IMAGE SLOT 1
+              Shown below the description — great for a mini screenshot.
+              Recommended: 600 × 340 px
+              1. Uncomment <img> and set src=""
+              2. Delete the .img-slot placeholder div
+            -->
+            <div style="margin-top:var(--space-4);">
+              <!-- <img src="images/features/task-management.png" alt="Task management screenshot" style="width:100%;border-radius:var(--radius-md);border:1px solid var(--color-border);" /> -->
+              <div class="img-slot" style="height:140px;">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">Feature screenshot<br />600 × 340 px</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ─── FEATURE CARD 2 ────────────────────────────────── -->
+          <div class="card feature-card" data-reveal data-delay="60">
+            <!--
+              ICON SLOT 2 — default emoji: 📅
+              To change: edit emoji or swap for <img>
+            -->
+            <div class="feature-icon-slot feature-icon-accent">
+              <span class="icon-emoji">📅</span>
+              <!-- <img src="images/icons/gantt-timeline.svg" alt="Gantt Timeline" /> -->
+            </div>
+            <h3 class="feature-title">Gantt Timeline</h3>
+            <p class="feature-desc">Visualize your project schedule with drag-and-drop Gantt charts. Set dependencies, milestones, and critical paths.</p>
+            <div style="margin-top:var(--space-4);">
+              <!-- <img src="images/features/gantt-timeline.png" alt="Gantt timeline screenshot" style="width:100%;border-radius:var(--radius-md);border:1px solid var(--color-border);" /> -->
+              <div class="img-slot" style="height:140px;">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">Feature screenshot<br />600 × 340 px</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FEATURE CARD 3 ────────────────────────────────── -->
+          <div class="card feature-card" data-reveal data-delay="120">
+            <!--
+              ICON SLOT 3 — default emoji: 🤖
+            -->
+            <div class="feature-icon-slot feature-icon-success">
+              <span class="icon-emoji">🤖</span>
+              <!-- <img src="images/icons/ai-assistant.svg" alt="AI Assistant" /> -->
+            </div>
+            <h3 class="feature-title">AI Assistant</h3>
+            <p class="feature-desc">Let AI break down complex goals into tasks, write task descriptions, suggest priorities, and identify scheduling conflicts.</p>
+            <div style="margin-top:var(--space-4);">
+              <!-- <img src="images/features/ai-assistant.png" alt="AI assistant screenshot" style="width:100%;border-radius:var(--radius-md);border:1px solid var(--color-border);" /> -->
+              <div class="img-slot" style="height:140px;">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">Feature screenshot<br />600 × 340 px</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FEATURE CARD 4 ────────────────────────────────── -->
+          <div class="card feature-card" data-reveal>
+            <!--
+              ICON SLOT 4 — default emoji: 💬
+            -->
+            <div class="feature-icon-slot feature-icon-primary">
+              <span class="icon-emoji">💬</span>
+              <!-- <img src="images/icons/comments.svg" alt="Threaded Comments" /> -->
+            </div>
+            <h3 class="feature-title">Threaded Comments</h3>
+            <p class="feature-desc">Discuss work in context. Comment on tasks, tag teammates, resolve threads, and never lose a decision in a chat app again.</p>
+            <div style="margin-top:var(--space-4);">
+              <!-- <img src="images/features/comments.png" alt="Threaded comments screenshot" style="width:100%;border-radius:var(--radius-md);border:1px solid var(--color-border);" /> -->
+              <div class="img-slot" style="height:140px;">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">Feature screenshot<br />600 × 340 px</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FEATURE CARD 5 ────────────────────────────────── -->
+          <div class="card feature-card" data-reveal data-delay="60">
+            <!--
+              ICON SLOT 5 — default emoji: 📊
+            -->
+            <div class="feature-icon-slot feature-icon-accent">
+              <span class="icon-emoji">📊</span>
+              <!-- <img src="images/icons/reports.svg" alt="Reports & Dashboards" /> -->
+            </div>
+            <h3 class="feature-title">Reports &amp; Dashboards</h3>
+            <p class="feature-desc">Build dashboards with velocity, burndown, workload, and custom widgets. Share live views with stakeholders.</p>
+            <div style="margin-top:var(--space-4);">
+              <!-- <img src="images/features/reports.png" alt="Reports screenshot" style="width:100%;border-radius:var(--radius-md);border:1px solid var(--color-border);" /> -->
+              <div class="img-slot" style="height:140px;">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">Feature screenshot<br />600 × 340 px</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FEATURE CARD 6 ────────────────────────────────── -->
+          <div class="card feature-card" data-reveal data-delay="120">
+            <!--
+              ICON SLOT 6 — default emoji: 🔗
+            -->
+            <div class="feature-icon-slot feature-icon-success">
+              <span class="icon-emoji">🔗</span>
+              <!-- <img src="images/icons/automations.svg" alt="Automations" /> -->
+            </div>
+            <h3 class="feature-title">Automations</h3>
+            <p class="feature-desc">Automate repetitive work. Move tasks, send notifications, update fields, and trigger webhooks — no code required.</p>
+            <div style="margin-top:var(--space-4);">
+              <!-- <img src="images/features/automations.png" alt="Automations screenshot" style="width:100%;border-radius:var(--radius-md);border:1px solid var(--color-border);" /> -->
+              <div class="img-slot" style="height:140px;">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">Feature screenshot<br />600 × 340 px</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FEATURE CARD 7 ────────────────────────────────── -->
+          <div class="card feature-card" data-reveal>
+            <!--
+              ICON SLOT 7 — default emoji: 🕐
+            -->
+            <div class="feature-icon-slot feature-icon-primary">
+              <span class="icon-emoji">🕐</span>
+              <!-- <img src="images/icons/time-tracking.svg" alt="Time Tracking" /> -->
+            </div>
+            <h3 class="feature-title">Time Tracking</h3>
+            <p class="feature-desc">Log hours directly on tasks. See where time is going with built-in timers, manual entries, and detailed time reports.</p>
+            <div style="margin-top:var(--space-4);">
+              <!-- <img src="images/features/time-tracking.png" alt="Time tracking screenshot" style="width:100%;border-radius:var(--radius-md);border:1px solid var(--color-border);" /> -->
+              <div class="img-slot" style="height:140px;">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">Feature screenshot<br />600 × 340 px</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FEATURE CARD 8 ────────────────────────────────── -->
+          <div class="card feature-card" data-reveal data-delay="60">
+            <!--
+              ICON SLOT 8 — default emoji: 📁
+            -->
+            <div class="feature-icon-slot feature-icon-accent">
+              <span class="icon-emoji">📁</span>
+              <!-- <img src="images/icons/file-management.svg" alt="File Management" /> -->
+            </div>
+            <h3 class="feature-title">File Management</h3>
+            <p class="feature-desc">Attach files directly to tasks. Preview images, PDFs, and documents in-app. 100 GB storage on Pro plans.</p>
+            <div style="margin-top:var(--space-4);">
+              <!-- <img src="images/features/file-management.png" alt="File management screenshot" style="width:100%;border-radius:var(--radius-md);border:1px solid var(--color-border);" /> -->
+              <div class="img-slot" style="height:140px;">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">Feature screenshot<br />600 × 340 px</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FEATURE CARD 9 ────────────────────────────────── -->
+          <div class="card feature-card" data-reveal data-delay="120">
+            <!--
+              ICON SLOT 9 — default emoji: 🔒
+            -->
+            <div class="feature-icon-slot feature-icon-success">
+              <span class="icon-emoji">🔒</span>
+              <!-- <img src="images/icons/security.svg" alt="Enterprise Security" /> -->
+            </div>
+            <h3 class="feature-title">Enterprise Security</h3>
+            <p class="feature-desc">SOC 2 Type II, SSO/SAML, 2FA, data residency options, audit logs, and granular role-based permissions.</p>
+            <div style="margin-top:var(--space-4);">
+              <!-- <img src="images/features/security.png" alt="Security screenshot" style="width:100%;border-radius:var(--radius-md);border:1px solid var(--color-border);" /> -->
+              <div class="img-slot" style="height:140px;">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">Feature screenshot<br />600 × 340 px</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.features-grid -->
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         FEATURE SHOWCASES  (3 alternating left/right sections)
+         Each showcase has:
+           • Left or right: copy + bullet list
+           • Opposite side: a LARGE image slot (800 × 560 px)
+         ════════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+
+        <!-- ── SHOWCASE 1 ── image RIGHT, text LEFT ── -->
+        <div class="features-showcase" data-reveal>
+
+          <div class="showcase-content">
+            <span class="section-label">Smart task management</span>
+            <h2>Work the way <span class="text-gradient">your team thinks</span></h2>
+            <p>Every team organizes work differently. Flowdesk gives you list, board, calendar, and table views — switch freely without losing any data. Custom fields let you track exactly what matters to your workflow.</p>
+            <div class="feature-bullets">
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Switch between list, board, calendar, and table views instantly</span></div>
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Custom fields: text, numbers, dates, dropdowns, and checkboxes</span></div>
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Bulk actions to update dozens of tasks in seconds</span></div>
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Templates for sprints, launches, hiring, and more</span></div>
+            </div>
+          </div>
+
+          <!--
+          ╔══════════════════════════════════════════════════════════╗
+          ║  SHOWCASE IMAGE 1 — Task Management                      ║
+          ║  Replace the placeholder with your product screenshot.   ║
+          ║  Recommended: 800 × 560 px                              ║
+          ║  1. Uncomment <img> and set src=""                      ║
+          ║  2. Delete the .img-slot div                            ║
+          ╚══════════════════════════════════════════════════════════╝
+          -->
+          <div class="showcase-visual">
+            <div class="showcase-img-slot">
+              <!-- ▼ YOUR IMAGE ▼ -->
+              <!-- <img src="images/features/showcase-tasks.png" alt="Task management views screenshot" /> -->
+
+              <!-- ▼ PLACEHOLDER ▼ -->
+              <div class="img-slot" style="height:340px; border-radius:var(--radius-xl);">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">
+                  Showcase screenshot — Task Management<br />
+                  Recommended: 800 × 560 px<br />
+                  Uncomment &lt;img&gt; above · delete this div
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /showcase 1 -->
+
+
+        <!-- ── SHOWCASE 2 ── image LEFT, text RIGHT ── -->
+        <div class="features-showcase" style="direction:rtl;" data-reveal>
+
+          <div class="showcase-content" style="direction:ltr;">
+            <span class="section-label">Visual timeline</span>
+            <h2>See the whole picture, <span class="text-gradient">always</span></h2>
+            <p>Flowdesk's Gantt timeline keeps your entire team aligned on what's happening and when. Drag to reschedule, link dependencies, and share live timelines with stakeholders.</p>
+            <div class="feature-bullets">
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Drag-and-drop scheduling across weeks and months</span></div>
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Task dependencies with automatic conflict detection</span></div>
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Milestone markers for key deliverables and deadlines</span></div>
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Shareable read-only link for external stakeholders</span></div>
+            </div>
+          </div>
+
+          <!--
+          ╔══════════════════════════════════════════════════════════╗
+          ║  SHOWCASE IMAGE 2 — Gantt / Timeline                     ║
+          ║  Recommended: 800 × 560 px                              ║
+          ╚══════════════════════════════════════════════════════════╝
+          -->
+          <div class="showcase-visual" style="direction:ltr;">
+            <div class="showcase-img-slot">
+              <!-- <img src="images/features/showcase-timeline.png" alt="Gantt timeline screenshot" /> -->
+              <div class="img-slot" style="height:340px; border-radius:var(--radius-xl);">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">
+                  Showcase screenshot — Gantt Timeline<br />
+                  Recommended: 800 × 560 px<br />
+                  Uncomment &lt;img&gt; above · delete this div
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /showcase 2 -->
+
+
+        <!-- ── SHOWCASE 3 ── image RIGHT, text LEFT ── -->
+        <div class="features-showcase" data-reveal>
+
+          <div class="showcase-content">
+            <span class="section-label">AI assistant</span>
+            <h2>Your smartest <span class="text-gradient">team member</span></h2>
+            <p>Describe a goal in plain English and watch Flowdesk's AI generate a complete task breakdown with estimates, assignee suggestions, and priority scores. Available on Pro and Enterprise plans.</p>
+            <div class="feature-bullets">
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Goal-to-task breakdown from a single sentence</span></div>
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Automatic time estimates based on similar past tasks</span></div>
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Smart workload balancing across team members</span></div>
+              <div class="feature-bullet"><span class="check-icon">✓</span><span>Natural language task search and filtering</span></div>
+            </div>
+          </div>
+
+          <!--
+          ╔══════════════════════════════════════════════════════════╗
+          ║  SHOWCASE IMAGE 3 — AI Assistant                         ║
+          ║  Recommended: 800 × 560 px                              ║
+          ╚══════════════════════════════════════════════════════════╝
+          -->
+          <div class="showcase-visual">
+            <div class="showcase-img-slot">
+              <!-- <img src="images/features/showcase-ai.png" alt="AI assistant screenshot" /> -->
+              <div class="img-slot" style="height:340px; border-radius:var(--radius-xl);">
+                <div class="slot-icon">🖼️</div>
+                <div class="slot-label">
+                  Showcase screenshot — AI Assistant<br />
+                  Recommended: 800 × 560 px<br />
+                  Uncomment &lt;img&gt; above · delete this div
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /showcase 3 -->
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         INTEGRATIONS GRID
+         ► Replace each emoji inside .int-icon-slot with a real
+           brand logo <img> — recommended 36 × 36 px SVG.
+         ════════════════════════════════════════════════════════════ -->
+    <section class="section bg-secondary">
+      <div class="container">
+        <div class="section-header centered" data-reveal>
+          <span class="section-label">Integrations</span>
+          <h2 class="section-title">Connects to everything<br /><span class="text-gradient">your team uses</span></h2>
+          <p class="section-subtitle">60+ native integrations. Zapier and webhooks for anything else.</p>
+        </div>
+
+        <div class="integrations-grid" data-reveal>
+
+          <!--
+            INTEGRATION TILE PATTERN:
+            Default (emoji):
+              <div class="int-icon-slot"><span>💬</span></div>
+
+            With real logo image:
+              <div class="int-icon-slot">
+                <img src="images/integrations/slack.svg" alt="Slack logo" />
+              </div>
+              (then delete the emoji <span>)
+          -->
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>💬</span>
+              <!-- <img src="images/integrations/slack.svg" alt="Slack" /> -->
+            </div>
+            <span>Slack</span>
+          </div>
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>🐙</span>
+              <!-- <img src="images/integrations/github.svg" alt="GitHub" /> -->
+            </div>
+            <span>GitHub</span>
+          </div>
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>🎨</span>
+              <!-- <img src="images/integrations/figma.svg" alt="Figma" /> -->
+            </div>
+            <span>Figma</span>
+          </div>
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>📝</span>
+              <!-- <img src="images/integrations/notion.svg" alt="Notion" /> -->
+            </div>
+            <span>Notion</span>
+          </div>
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>📧</span>
+              <!-- <img src="images/integrations/gmail.svg" alt="Gmail" /> -->
+            </div>
+            <span>Gmail</span>
+          </div>
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>📹</span>
+              <!-- <img src="images/integrations/zoom.svg" alt="Zoom" /> -->
+            </div>
+            <span>Zoom</span>
+          </div>
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>☁️</span>
+              <!-- <img src="images/integrations/gdrive.svg" alt="Google Drive" /> -->
+            </div>
+            <span>Google Drive</span>
+          </div>
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>🔷</span>
+              <!-- <img src="images/integrations/jira.svg" alt="Jira" /> -->
+            </div>
+            <span>Jira</span>
+          </div>
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>📅</span>
+              <!-- <img src="images/integrations/gcal.svg" alt="Google Calendar" /> -->
+            </div>
+            <span>Google Cal</span>
+          </div>
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>🔁</span>
+              <!-- <img src="images/integrations/zapier.svg" alt="Zapier" /> -->
+            </div>
+            <span>Zapier</span>
+          </div>
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>🐋</span>
+              <!-- <img src="images/integrations/gitlab.svg" alt="GitLab" /> -->
+            </div>
+            <span>GitLab</span>
+          </div>
+
+          <div class="integration-item">
+            <div class="int-icon-slot">
+              <span>⚡</span>
+              <!-- <img src="images/integrations/linear.svg" alt="Linear" /> -->
+            </div>
+            <span>Linear</span>
+          </div>
+
+        </div><!-- /.integrations-grid -->
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         FINAL CTA
+         ════════════════════════════════════════════════════════════ -->
+    <section class="section cta-section">
+      <div class="cta-bg"></div>
+      <div class="container">
+        <div class="cta-box" data-reveal>
+          <span class="badge badge-primary" style="margin-bottom:var(--space-5);">🎯 Free 14-day trial</span>
+          <h2 class="cta-title">Try every feature<br /><span class="text-gradient">free for 14 days</span></h2>
+          <p class="cta-subtitle">No credit card required. Full Pro access. Cancel whenever you want.</p>
+          <div class="cta-actions">
+            <a href="signup.html" class="btn btn-primary btn-lg">Start free trial</a>
+            <a href="pricing.html" class="btn btn-secondary btn-lg">View pricing</a>
+          </div>
+          <p class="cta-note">Setup in 5 minutes · No credit card · Cancel anytime</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       FOOTER
+       ► Logo: same as nav — uncomment <img> or keep emoji.
+       ► Social icons: replace text glyphs with <img> SVGs.
+       ════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <!-- <img src="images/logo.svg" alt="Flowdesk" style="height:32px;width:auto;" /> -->
+            <div class="nav-logo-icon">⚡</div>
+            Flowdesk
+          </a>
+          <p>The all-in-one workspace for modern teams. Manage projects, track tasks, and collaborate in real time.</p>
+          <div class="footer-social">
+            <!--
+              SOCIAL ICONS — swap text glyphs for real SVG icons:
+              <a href="#" class="social-link" aria-label="Twitter">
+                <img src="images/social/twitter.svg" alt="" style="width:16px;height:16px;" />
+              </a>
+            -->
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">⌥</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="features.html" class="footer-link">Features</a></li>
+            <li><a href="pricing.html"  class="footer-link">Pricing</a></li>
+            <li><a href="#"             class="footer-link">Changelog</a></li>
+            <li><a href="#"             class="footer-link">Roadmap</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#"            class="footer-link">About</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+            <li><a href="#"            class="footer-link">Blog</a></li>
+            <li><a href="#"            class="footer-link">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Documentation</a></li>
+            <li><a href="#" class="footer-link">API reference</a></li>
+            <li><a href="#" class="footer-link">Templates</a></li>
+            <li><a href="#" class="footer-link">Community</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Flowdesk, Inc. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
