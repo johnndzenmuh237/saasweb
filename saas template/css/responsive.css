@@ -386,6 +386,56 @@
   }
 }
 
+/* ---- Nav Mobile Fix ---- */
+@media (max-width: 768px) {
+
+  /* Let the nav grow instead of clipping its contents */
+  .nav {
+    height: auto;
+    min-height: var(--nav-height);
+    padding: var(--space-3) 0;
+  }
+
+  /* Give inner row room to breathe and wrap if needed */
+  .nav-inner {
+    padding: 0 var(--space-4);
+    flex-wrap: nowrap;       /* keep logo + actions on one line */
+    gap: var(--space-3);
+  }
+
+  /* Make sure logo text + icon never get clipped */
+  .nav-logo {
+    font-size: var(--text-lg);
+    flex-shrink: 0;
+  }
+
+  .nav-logo-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  /* Actions: keep toggle + primary btn visible, hide sign-in (already hidden above) */
+  .nav-actions {
+    flex-shrink: 0;
+    gap: var(--space-2);
+  }
+
+  /* Primary CTA in nav — shrink slightly so it fits */
+  .nav-actions .btn-primary.btn-sm {
+    padding: 0.4rem 0.75rem;
+    font-size: 11px;
+  }
+
+  /* Hamburger always visible and never clipped */
+  .nav-mobile-toggle {
+    display: flex;
+    flex-shrink: 0;
+    padding: var(--space-1);
+  }
+}
+
 /* ---- Reduced Motion ---- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
