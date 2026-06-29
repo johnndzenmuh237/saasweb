@@ -389,50 +389,57 @@
 /* ---- Nav Mobile Fix ---- */
 @media (max-width: 768px) {
 
-  /* Let the nav grow instead of clipping its contents */
-  .nav {
-    height: auto;
-    min-height: var(--nav-height);
-    padding: var(--space-3) 0;
+  /* Override nav-height variable so all calc() references update too */
+  :root {
+    --nav-height: 60px;
   }
 
-  /* Give inner row room to breathe and wrap if needed */
+  /* Use the new height */
+  .nav {
+    height: var(--nav-height);
+    min-height: var(--nav-height);
+    display: flex;
+    align-items: center;
+  }
+
+  /* Tighter horizontal padding so items don't crowd */
   .nav-inner {
     padding: 0 var(--space-4);
-    flex-wrap: nowrap;       /* keep logo + actions on one line */
-    gap: var(--space-3);
+    gap: var(--space-2);
   }
 
-  /* Make sure logo text + icon never get clipped */
+  /* Logo: slightly smaller so it fits comfortably */
   .nav-logo {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     flex-shrink: 0;
+    gap: var(--space-2);
   }
 
   .nav-logo-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 15px;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
     flex-shrink: 0;
   }
 
-  /* Actions: keep toggle + primary btn visible, hide sign-in (already hidden above) */
+  /* Actions row: no shrinking, tighter gap */
   .nav-actions {
     flex-shrink: 0;
     gap: var(--space-2);
   }
 
-  /* Primary CTA in nav — shrink slightly so it fits */
-  .nav-actions .btn-primary.btn-sm {
-    padding: 0.4rem 0.75rem;
+  /* "Start free trial" button — compact on mobile */
+  .nav-actions .btn-sm {
+    padding: 0.35rem 0.7rem;
     font-size: 11px;
+    white-space: nowrap;
   }
 
-  /* Hamburger always visible and never clipped */
+  /* Hamburger — always fully visible */
   .nav-mobile-toggle {
     display: flex;
     flex-shrink: 0;
-    padding: var(--space-1);
+    padding: 4px;
   }
 }
 
