@@ -70,6 +70,59 @@
   .features-showcase:nth-child(even) .showcase-visual { order: -1; }
 }
 
+/* ---- Tablet Medium (≤900px) — Hero column stack ---- */
+@media (max-width: 900px) {
+
+  /* Stack hero columns vertically */
+  .hero .container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: var(--space-8) !important;
+    min-height: auto !important;
+    padding-top: calc(var(--nav-height) + var(--space-8)) !important;
+    padding-bottom: var(--space-12) !important;
+  }
+
+  /* Allow hero text to go full-width */
+  .hero-content {
+    max-width: 100% !important;
+    text-align: center;
+  }
+
+  /* Show the dashboard visual below the text */
+  .hero-visual {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    right: auto !important;
+  }
+
+  /* Slightly shorter image panel on tablet */
+  .hero-img-wrap {
+    height: 360px !important;
+  }
+
+  /* Reposition floating cards so they stay inside the panel */
+  .hero-float-card.card-a {
+    top: auto !important;
+    bottom: 12px !important;
+    left: 12px !important;
+    right: auto !important;
+  }
+
+  .hero-float-card.card-b {
+    top: 12px !important;
+    right: 12px !important;
+    bottom: auto !important;
+    left: auto !important;
+  }
+
+  /* Center trust row and actions */
+  .hero-trust   { justify-content: center; }
+  .hero-actions { justify-content: center; flex-wrap: wrap; }
+  .hero-eyebrow { justify-content: center; display: flex; }
+}
+
 /* ---- Mobile Large (≤768px) ---- */
 @media (max-width: 768px) {
 
@@ -123,7 +176,22 @@
     text-align: center;
   }
 
-  .hero-visual { display: none; }
+  /* Keep visual visible — overrides the old display:none */
+  .hero-visual {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    right: auto !important;
+  }
+
+  .hero-img-wrap {
+    height: 300px !important;
+  }
+
+  /* Hide floating cards at this size to avoid overflow */
+  .hero-float-card {
+    display: none !important;
+  }
 
   .hero-eyebrow { justify-content: center; }
 
@@ -132,6 +200,16 @@
   .hero-actions { justify-content: center; }
 
   .hero-trust { justify-content: center; }
+
+  /* Scale title with viewport */
+  .hero-title {
+    font-size: clamp(1.75rem, 7vw, 2.75rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 3.5vw, 1.05rem) !important;
+  }
 
   /* Sections */
   .section { padding: var(--space-16) 0; }
@@ -223,6 +301,33 @@
     justify-content: center;
   }
 
+  /* Reduce dashboard panel height on small phones */
+  .hero-img-wrap {
+    height: 240px !important;
+  }
+
+  /* Scale down mockup internals */
+  .mockup-sidebar {
+    width: 80px !important;
+    font-size: 10px !important;
+  }
+
+  .mockup-nav-item .icon {
+    font-size: 11px !important;
+  }
+
+  .mockup-stat-val {
+    font-size: 14px !important;
+  }
+
+  .mockup-stat-label {
+    font-size: 9px !important;
+  }
+
+  .mockup-stat-change {
+    font-size: 9px !important;
+  }
+
   .cta-actions {
     flex-direction: column;
     align-items: center;
@@ -261,6 +366,23 @@
 
   .pricing-card.popular {
     order: -1;
+  }
+}
+
+/* ---- Very Small Phones (≤380px) ---- */
+@media (max-width: 380px) {
+
+  .hero-img-wrap {
+    height: 190px !important;
+  }
+
+  /* Hide sidebar to give chart/stats more room */
+  .mockup-sidebar {
+    display: none !important;
+  }
+
+  .mockup-stats {
+    gap: 6px !important;
   }
 }
 
